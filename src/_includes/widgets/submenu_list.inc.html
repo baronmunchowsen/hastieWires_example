@@ -1,0 +1,16 @@
+{% if page.submenu.size %}
+<ul class="submenu_list">
+  {% if include.showparent %}
+    <li><a href="./">{{ page.title }}</a></li>
+  {% endif %}
+  {% for subpage in page.submenu %}
+  <li>
+    {% if subpage.submenu %}
+      <a href="./{{ subpage.path }}">{{ subpage.title }}</a>
+    {% else %}
+      <a href="./{{ subpage.path }}.html">{{ subpage.title }}</a>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}

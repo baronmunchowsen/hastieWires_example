@@ -1,0 +1,8 @@
+{% include header.inc.html %}
+  
+  {% for widget in page.widgets %}
+    {% capture theWidget %}widgets/{{widget.filename}}.inc.html{% endcapture %}
+    {% include {{theWidget}} params=widget.params %}
+  {% endfor %}
+    
+{% include footer.inc.html %}

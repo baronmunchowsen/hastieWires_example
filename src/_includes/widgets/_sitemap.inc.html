@@ -1,0 +1,33 @@
+{% assign current_depth = 0 %}
+{% if include.current_depth %}
+  {% assign current_depth = include.current_depth %}
+{% endif %}
+<!-- {{ current_depth }} vs {{ include.depth }} -->
+{% if current_depth <= include.depth %}
+  <ul>
+  {% for p in include.data %}
+    <li>
+    {% assign olddir = include.directory %}
+    
+    
+    {% if p.submenu %}
+      {% if include.nohome != true %}
+        <a href="{{ olddir }}{{ p.path }}">{{ p.title }}</a>
+      {% endif %}
+      
+      {% if p.path %}
+        {% capture newdirectory %}{{ olddir }}{{ p.path }}/{% endcapture %}
+      {% else %}
+        {% assign newdirectory = olddir %}
+      {% endif %}
+      {% assign newdepth = current_depth | plus: 1 %}
+      {% include widgets/_sitemap.inc.html directory=newdirectory data=p.submenu current_depth=newdepth depth=include.depth nohome=false %}
+    {% else %}
+      <a href="{{ include.directory }}{{ p.path }}.html">{{ p.title }}</a>
+    {% endif %}
+    
+    
+    </li>
+  {% endfor %}
+  </ul>
+{% endif %}

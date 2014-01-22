@@ -1,0 +1,11 @@
+<html>
+  <head>
+    <title>{{ page.title }}</title>
+  	<link rel='stylesheet' href='/common/css/styles.css'>
+  </head>
+  <body class="{{ page.bodyclass }}">
+  <header>
+    <h2><a href="/">HastieWires Example</a></h2>
+    {% include widgets/sitemap.inc.html nohome=true depth=1 %}
+  </header>
+  <div class="viewport">

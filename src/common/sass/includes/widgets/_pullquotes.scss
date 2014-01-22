@@ -1,0 +1,22 @@
+.pull-quote {
+  background: whitesmoke;
+  padding: $spacer;
+  margin: $spacer 0;
+}
+
+@media only screen and (min-width: $tabtop) {
+  .pull-quote {
+    margin-top: 0;
+    width: 45%;
+    &.pull-left {
+      float: left;
+      margin-left: ($spacer*2)/$tabtop * 100% * -1;
+      margin-right: $spacer;
+    }
+    &.pull-right {
+      float: right;
+      margin-right: ($spacer*2)/$tabtop * 100% * -1;
+      margin-left: $spacer;
+    }
+  }
+}

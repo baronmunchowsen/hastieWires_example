@@ -1,0 +1,23 @@
+{% assign showparent=include.showparent %}
+{% for item in include.data %}
+
+  {% if item.path == page.parent %}
+    <aside class="contextual-links">
+    {% if include.title %}<h3>{{ include.title }}</h3>{% endif %}
+    <ul>
+    {% if include.showparent %}
+     <li><a href="{% if item.path %}../{{ item.path }}{% else %}index.html{% endif %}">{{ item.title }}</a></li>
+    {% endif %}
+    {% if item.submenu.size > 1 %}
+      {% for siblings in item.submenu %}
+         <li><a href="{% if siblings.submenu == nil %}./{{ siblings.path }}.html{% else %}../{{ siblings.path }}{% endif %}" {% if siblings.path == page.path %}class="active"{% endif %}>{{ siblings.title }}</a></li>
+      {% endfor %}
+    {% endif %}
+    </ul>
+    </aside>
+  {% endif %}
+  
+  {% if item.submenu.size %}
+    {% include widgets/_contextual_menu_list.inc.html data=item.submenu showparent=showparent %}
+  {% endif %}
+{% endfor %}

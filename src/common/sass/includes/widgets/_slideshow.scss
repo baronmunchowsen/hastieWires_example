@@ -1,0 +1,29 @@
+.slides > li {
+  height: 1px;
+  position: relative;
+  padding-top: 40%;
+  display: none;
+  & > div {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $blue;
+    text-align: center;
+    padding-top: 17.5%;
+    color: $white;
+  }
+  &:first-child {
+    display: block;
+  }
+}
+
+.home .slideshow {
+  & > .wrapper {
+    width: 100%;
+    padding: 0;
+    max-width: none;
+  }
+}

@@ -1,0 +1,42 @@
+# hastieWires defaults:
+#   - title: the name of the page
+#   - layout: the template file to use
+#   - path: the path to use (name of the .html file created)
+#   - submenu: any children pages
+#   - foo: any other variables are available to to use in  your table files via page.foo 
+#
+#
+#
+
+#the sitemap MUST start with a homepage at its own level
+- title: Homepage
+  bodyclass: home
+  layout: custom #you can specify the template you want to use via the layout tag
+  widgets:
+    - filename: slideshow
+    - filename: content_section
+      params:
+        - headline: Welcome
+    - filename: submenu_block
+  submenu: #if you want to have sub-pages/menus then use the submenu label
+    - title: About
+      #specify a path value, if it's ommited, then it will default to index.html
+      path: about
+      showsub: true
+      submenu:
+        - title: Resume
+          path: resume
+          showcontextual: true
+        - title: Full Bio
+          path: bio
+          showcontextual: true
+        - title: Find me Online
+          path: online
+          showcontextual: true
+    - title: Portfolio
+      path: work
+      layout: listpage
+      datafile: portfolio
+    - title: Get in Touch
+      path: contact
+          

@@ -1,0 +1,29 @@
+{% include header.inc.html %}
+    
+  {% include widgets/slideshow.inc.html %}
+  {% if page.showsub %}
+    <section class="page-menu">
+    {% include widgets/submenu_list.inc.html showparent=true %}
+    </section>
+  {% elsif page.showcontextual %}
+    <section class="page-menu">
+    {% include widgets/contextual_menu_list.inc.html showparent=true %}
+    </section>
+  {% endif %}
+  <section class="content">
+    <div class="wrapper row">
+      <div class="main">
+      <h1>{{ page.title }}</h1>
+      {% include widgets/content_block.inc.html %}
+      {% include widgets/pull_quote.inc.html %}
+      <h3>Lorem Ipsum</h3>
+      {% include widgets/content_block.inc.html %}
+      {% include widgets/content_block.inc.html %}
+      {% include widgets/pull_quote.inc.html orientation="right" %}
+      {% include widgets/content_block.inc.html %}
+      </div>
+    </div>
+  </section>
+  
+    
+{% include footer.inc.html %}

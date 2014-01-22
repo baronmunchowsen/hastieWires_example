@@ -1,0 +1,38 @@
+.listings {
+  @include clearfix;
+  .item {
+    position: relative;
+    height: 1px;
+    padding-top: 50%;
+    background: blue;
+    margin-bottom: $spacer;
+  }
+  .item > a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    border: 0;
+    width: 100%;
+    overflow: hidden;
+    color: $white;
+    text-align: center;
+    padding-top: 20%;
+  }
+}
+
+@media only screen and (min-width: $tabtop) {
+  .listings .item {
+    float: left;
+    width: 30%;
+    padding-top: 30%;
+    margin-left: 5%;
+    &:nth-child(3n+1) {
+      margin-left: 0;
+      clear: left;
+    }
+    & > a {
+      padding-top: 40%;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{% if page.submenu.size %}
+<section class="submenu_blocks">
+  <div class="wrapper">
+    <ul>
+      {% for subpage in page.submenu %}
+      <li>
+      <div>
+        {% if subpage.submenu %}
+          <a href="./{{ subpage.path }}"><span>{{ subpage.title }}</span></a>
+        {% else %}
+          <a href="./{{ subpage.path }}.html"><span>{{ subpage.title }}</span></a>
+        {% endif %}
+      </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}
